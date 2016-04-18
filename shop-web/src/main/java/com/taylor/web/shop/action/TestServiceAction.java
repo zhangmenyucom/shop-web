@@ -37,7 +37,7 @@ public class TestServiceAction {
     public String test(ModelMap map, HttpServletRequest request, HttpServletResponse response) {
         try {
             testService.test();
-            map.put("welcome", "hello world!");
+            map.put("welcome", testService.getHello());
         } catch (Exception e) {
             LOGGER.error("调用TestServiceAction.test方法时出错", e);
         }

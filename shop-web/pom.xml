@@ -108,7 +108,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
-			<version>${version-spring}</version>
 		</dependency>
 		<!-- velocity 模板 -->
 		<dependency>
@@ -173,6 +172,9 @@
 	<profiles>
 		<profile>
 			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<properties>
 				<!-- 本地直连地址 -->
 				<dubbo.protocol.port>20552</dubbo.protocol.port>
@@ -184,16 +186,13 @@
 		</profile>
 		<profile>
 			<id>test</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 			<properties>
 				<!-- 本地直连地址 -->
 				<dubbo.protocol.port>20554</dubbo.protocol.port>
 				<dubbo.direct.url>dubbo://192.168.80.129:20554</dubbo.direct.url>
 				<dubbo.registry.address>192.168.80.129:2181</dubbo.registry.address>
 				<!-- log4j配置 -->
-				<log4j.root.logger>ERROR,stdout,ErrrorLogFile,CONSOLE</log4j.root.logger>
+				<log4j.root.logger>info,DEBUG,DebugLogFile,ERROR,stdout,ErrrorLogFile,CONSOLE</log4j.root.logger>
 			</properties>
 		</profile>
 		<profile>
