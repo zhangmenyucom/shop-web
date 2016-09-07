@@ -13,11 +13,8 @@
 
     <dubbo:monitor protocol="registry"/>
    
-    <dubbo:reference id="testService" interface="com.taylor.api.shop.service.TestService" url="${dubbo.direct.url}" version="${service.version}" />
-    
-    <dubbo:reference id="shopUserService" interface="com.taylor.api.shop.service.ShopUserService" url="${dubbo.direct.url}" version="${service.version}" />
+    <dubbo:reference id="redisClientService" interface="com.taylor.redis.service.RedisClientService"  group="sharded" url="${dubbo.direct.url}" version="${service.version}" />
     
     <dubbo:consumer timeout="${dubbo.timeout}"/>
     
-    <dubbo:provider timeout="${dubbo.timeout}"/>
 </beans>
